@@ -304,7 +304,14 @@ public class TimeFreeze : IModApi
 					}
 					else if (_params[0] == "fogcolor")
 					{
-						TimeFreeze.WritePrivateProfileString("weather", "fogcolor", _params[1], Environment.CurrentDirectory + "\\Mods\\TimeFreeze\\settings.ini");
+						TimeFreeze.WritePrivateProfileString("weather", "fogcolor", string.Concat(new string[]
+						{
+							_params[1],
+							",",
+							_params[2],
+							",",
+							_params[3]
+						}), Environment.CurrentDirectory + "\\Mods\\TimeFreeze\\settings.ini");
 					}
 					else if (_params[0] == "temp")
 					{
